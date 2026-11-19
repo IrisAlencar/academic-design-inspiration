@@ -20,11 +20,11 @@ export function Constellation() {
       }
       ctx.strokeStyle = color; ctx.fillStyle = color;
       for (let i = 0; i < pts.length; i++) {
-        const a = pts[i];
+        const a = pts[i]!;
         ctx.globalAlpha = 0.7;
         ctx.beginPath(); ctx.arc(a.x * w, a.y * h, 1.6, 0, Math.PI * 2); ctx.fill();
         for (let j = i + 1; j < pts.length; j++) {
-          const b = pts[j];
+          const b = pts[j]!;
           const d = Math.hypot((a.x - b.x) * w, (a.y - b.y) * h);
           if (d < 140) {
             ctx.globalAlpha = (1 - d / 140) * 0.25;
